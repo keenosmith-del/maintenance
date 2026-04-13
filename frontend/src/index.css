@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  background: black;
+
+  color: #e5e7eb;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 700px; 
+  height: 700px;
+
+  background: url("./assets/background.jpeg") no-repeat center;
+  background-size: contain;
+
+  transform: translate(-50%, -50%);
+  opacity: 0.03; 
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-weight: 300;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.job {
+  background: rgba(255, 255, 255, 0.025); 
+
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  color: #e5e7eb;
+}
+
+select {
+  width: 100%;
+  padding: 12px 40px 12px 12px; /* right padding creates space */
+  margin: 8px 0;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  color: #e5e7eb;
+  border: none;
+
+  appearance: none; /* removes default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center; /* THIS controls position */
+  background-size: 14px;
+
+  transition: all 0.2s ease;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+select:hover {
+  cursor: pointer;
+  transform: translateY(-2px); 
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(48, 48, 48, 0.734);
+  color: white;
+  font-weight: 300;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px); 
+  background: rgba(255,255,255,0.08);   
+}
+
+button:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.controls select,
+.controls button {
+  flex: 1;
+}
+
+/* Labels for sections */
+.label {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+/* Batch update group styling */
+.batch-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.batch-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  align-items: center; /* THIS FIXES ALIGNMENT */
+}
+
+.batch-group select,
+.batch-group button {
+  flex: 1;
+}
+
+small {
+  opacity: 0.2;
+}
+
+.job-item {
+  margin-bottom: 10px;
+}
+
+input {
+  outline: none;
+}
+
+select:focus {
+    outline: none;
+}
+
+button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.job-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.job-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.job-status {
+  font-size: 12px;
+  opacity: 0.5;
+  margin-top: 8px;
+}
