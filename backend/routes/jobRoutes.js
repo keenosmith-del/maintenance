@@ -1,14 +1,14 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const {
-    createJob,
-    getJobs,
-    getJobById,
-    updateJob,
-    batchUpdateStatus,
-    archiveJob,
-} = require("../controllers/jobController");
+import {
+  createJob,
+  getJobs,
+  getJobById,
+  updateJob,
+  batchUpdateStatus,
+  archiveJob,
+} from "../controllers/jobController.js";
 
 // create job
 router.post("/", createJob);
@@ -28,4 +28,4 @@ router.put("/:id", updateJob);
 // archive job
 router.delete("/:id", archiveJob);
 
-module.exports = router;
+export default router;

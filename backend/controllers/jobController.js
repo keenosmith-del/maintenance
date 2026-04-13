@@ -1,8 +1,7 @@
-const Job = require("../models/jobModel");
+import Job from "../models/jobModel.js";
 
 // create job
-// POST /api/jobs
-exports.createJob = async (req, res) => {
+export const createJob = async (req, res) => {
   try {
     const job = await Job.create(req.body);
     res.status(201).json(job);
@@ -11,9 +10,8 @@ exports.createJob = async (req, res) => {
   }
 };
 
-// get all jobs (sorted + not archived)
-/// GET /api/jobs
-exports.getJobs = async (req, res) => {
+// get all jobs
+export const getJobs = async (req, res) => {
   try {
     const { status } = req.query;
 
@@ -35,8 +33,7 @@ exports.getJobs = async (req, res) => {
 };
 
 // get single job
-// GET /api/jobs/:id
-exports.getJobById = async (req, res) => {
+export const getJobById = async (req, res) => {
   try {
     const job = await Job.findById(req.params.id);
 
@@ -48,9 +45,8 @@ exports.getJobById = async (req, res) => {
   }
 };
 
-// update single job
-// PUT /api/jobs/:id
-exports.updateJob = async (req, res) => {
+// update job
+export const updateJob = async (req, res) => {
   try {
     const job = await Job.findByIdAndUpdate(
       req.params.id,
@@ -66,9 +62,8 @@ exports.updateJob = async (req, res) => {
   }
 };
 
-// batch update status
-// PUT /api/jobs/batch
-exports.batchUpdateStatus = async (req, res) => {
+// batch update
+export const batchUpdateStatus = async (req, res) => {
   try {
     const { ids, status } = req.body;
 
@@ -83,9 +78,8 @@ exports.batchUpdateStatus = async (req, res) => {
   }
 };
 
-// archive a job
-// DELETE /api/jobs/:id
-exports.archiveJob = async (req, res) => {
+// archive job
+export const archiveJob = async (req, res) => {
   try {
     const job = await Job.findByIdAndUpdate(
       req.params.id,
